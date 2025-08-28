@@ -1,0 +1,6 @@
+---
+description: The rule is necessary to create responsive websites
+globs: 
+alwaysApply: false
+---
+Use mobile-first approach with help of tailwind classes. All pages should be responsive and possible to display on mobile, tablets and desktop apps. Size of different elements, images and fonts should be adjusted accordingly depending on the device size. Use best design practices for web apps.

@@ -1,0 +1,6 @@
+---
+description: The rule is necessary to create any React component
+globs: 
+alwaysApply: false
+---
+Use best practices for web accessibility, e.g. ensure support for screan readers, use semantic HTML tags.

@@ -1,0 +1,14 @@
+---
+description: The rule is necessary for creating React components
+globs: 
+alwaysApply: false
+---
+Never put text (strings) directly into jsx, create json files in a similar way as for internationalization purpose and import strings to components as variables. Use proper categories and nesting in json objects depending on context of the string content or placement of the string. E.g. a button with "confirm" text could be placed in a structure like:
+
+```
+{
+    "buttons": {
+        "confirm": "Zatwierdź"
+    }
+}
+```
