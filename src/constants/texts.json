@@ -2,5 +2,44 @@
   "auth": {
     "heading": "Witaj, aby zobaczyć zawartość wpisz hasło",
     "placeholder": "Hasło"
+  },
+  "navigation": {
+    "chat": "Chat",
+    "skills": "Umiejętności",
+    "projects": "Projekty",
+    "documentation": "Dokumentacja",
+    "qa": "Pytania i Odpowiedzi",
+    "contact": "Kontakt"
+  },
+  "chat": {
+    "title": "Your Name",
+    "subtitle": "Job Application Title",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "skills": {
+    "title": "Umiejętności Techniczne",
+    "description": "Przegląd kompetencji technicznych"
+  },
+  "projects": {
+    "title": "Projekty",
+    "description": "Portfolio projektów i pomysłów"
+  },
+  "documentation": {
+    "title": "Dokumentacja AI",
+    "description": "Szczegółowy opis wykorzystania AI w tworzeniu tej strony"
+  },
+  "qa": {
+    "title": "Pytania i Odpowiedzi",
+    "description": "Odpowiedzi na pytania techniczne"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Informacje kontaktowe"
+  },
+  "buttons": {
+    "learnMore": "Dowiedz się więcej",
+    "viewProject": "Zobacz projekt",
+    "contact": "Skontaktuj się",
+    "backToTop": "Powrót na górę"
   }
 }
