@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { TabMenu } from 'primereact/tabmenu';
 import { Button } from 'primereact/button';
 import { Sidebar } from 'primereact/sidebar';
@@ -8,79 +10,38 @@ import { MenuItem } from 'primereact/menuitem';
 import texts from '@/constants/texts.json';
 
 export default function Navbar() {
-  const [activeIndex, setActiveIndex] = useState(0);
   const [sidebarVisible, setSidebarVisible] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
-  const menuItems: MenuItem[] = [
-    {
-      label: texts.navigation.home,
-      command: () => {
-        document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
-        setActiveIndex(0);
-      },
-    },
-    {
-      label: texts.navigation.about,
-      command: () => {
-        document
-          .getElementById('about')
-          ?.scrollIntoView({ behavior: 'smooth' });
-        setActiveIndex(1);
-      },
-    },
-    {
-      label: texts.navigation.skills,
-      command: () => {
-        document
-          .getElementById('skills')
-          ?.scrollIntoView({ behavior: 'smooth' });
-        setActiveIndex(2);
-      },
-    },
-    {
-      label: texts.navigation.projects,
-      command: () => {
-        document
-          .getElementById('projects')
-          ?.scrollIntoView({ behavior: 'smooth' });
-        setActiveIndex(3);
-      },
-    },
-    {
-      label: texts.navigation.aiDocumentation,
-      command: () => {
-        document
-          .getElementById('ai-documentation')
-          ?.scrollIntoView({ behavior: 'smooth' });
-        setActiveIndex(4);
-      },
-    },
-    {
-      label: texts.navigation.qa,
-      command: () => {
-        document.getElementById('qa')?.scrollIntoView({ behavior: 'smooth' });
-        setActiveIndex(5);
-      },
-    },
-    {
-      label: texts.navigation.contact,
-      command: () => {
-        document
-          .getElementById('contact')
-          ?.scrollIntoView({ behavior: 'smooth' });
-        setActiveIndex(6);
-      },
-    },
+  const routes = [
+    { path: '/chat', label: texts.navigation.chat },
+    { path: '/skills', label: texts.navigation.skills },
+    { path: '/projects', label: texts.navigation.projects },
+    { path: '/documentation', label: texts.navigation.documentation },
+    { path: '/qa', label: texts.navigation.qa },
+    { path: '/contact', label: texts.navigation.contact },
   ];
 
+  const getActiveIndex = () => {
+    const index = routes.findIndex((route) => route.path === pathname);
+    return index >= 0 ? index : 0;
+  };
+
+  const menuItems: MenuItem[] = routes.map((route) => ({
+    label: route.label,
+    command: () => {
+      router.push(route.path);
+    },
+  }));
+
   const handleMenuItemClick = (index: number) => {
-    setActiveIndex(index);
+    router.push(routes[index].path);
     setSidebarVisible(false);
   };
 
   const scrollToHome = () => {
-    document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
-    setActiveIndex(0);
+    router.push('/chat');
   };
 
   return (
@@ -96,10 +57,10 @@ export default function Navbar() {
             <div className='flex-shrink-0'>
               <Button
                 link
-                label={texts.home.title}
+                label={texts.chat.title}
                 className='text-xl sm:text-2xl font-bold p-0'
                 onClick={scrollToHome}
-                aria-label='Go to home section'
+                aria-label='Go to chat page'
               />
             </div>
 
@@ -107,8 +68,8 @@ export default function Navbar() {
             <div className='hidden lg:block'>
               <TabMenu
                 model={menuItems}
-                activeIndex={activeIndex}
-                onTabChange={(e) => setActiveIndex(e.index)}
+                activeIndex={getActiveIndex()}
+                onTabChange={(e) => router.push(routes[e.index].path)}
                 className='h-16'
                 style={{ border: 'none' }}
               />
@@ -134,37 +95,19 @@ export default function Navbar() {
         className='w-full sm:w-80'
         header={
           <div className='flex align-items-center gap-2'>
-            <span className='font-bold text-xl'>{texts.navigation.home}</span>
+            <span className='font-bold text-xl'>{texts.navigation.chat}</span>
           </div>
         }
       >
         <div className='flex flex-column gap-2'>
-          {menuItems.map((item, index) => (
+          {routes.map((route, index) => (
             <Button
               key={index}
-              label={item.label}
+              label={route.label}
               text
               className='w-full justify-content-start p-3'
-              onClick={() => {
-                // Manually trigger the navigation instead of using item.command
-                const sectionIds = [
-                  'home',
-                  'about',
-                  'skills',
-                  'projects',
-                  'ai-documentation',
-                  'qa',
-                  'contact',
-                ];
-                const targetId = sectionIds[index];
-                if (targetId) {
-                  document
-                    .getElementById(targetId)
-                    ?.scrollIntoView({ behavior: 'smooth' });
-                }
-                handleMenuItemClick(index);
-              }}
-              severity={activeIndex === index ? 'info' : undefined}
+              onClick={() => handleMenuItemClick(index)}
+              severity={pathname === route.path ? 'info' : undefined}
             />
           ))}
         </div>

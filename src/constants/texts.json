@@ -4,47 +4,42 @@
     "placeholder": "Hasło"
   },
   "navigation": {
-    "home": "Home",
-    "about": "About",
-    "skills": "Skills",
-    "projects": "Projects",
-    "aiDocumentation": "AI Documentation",
-    "qa": "Q&A",
-    "contact": "Contact"
+    "chat": "Chat",
+    "skills": "Umiejętności",
+    "projects": "Projekty",
+    "documentation": "Dokumentacja",
+    "qa": "Pytania i Odpowiedzi",
+    "contact": "Kontakt"
   },
-  "home": {
+  "chat": {
     "title": "Your Name",
     "subtitle": "Job Application Title",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
-  "about": {
-    "title": "About Section",
-    "description": "Description of experience and motivation"
-  },
   "skills": {
-    "title": "Technical Skills",
-    "description": "Overview of technical competencies"
+    "title": "Umiejętności Techniczne",
+    "description": "Przegląd kompetencji technicznych"
   },
   "projects": {
-    "title": "Projects",
-    "description": "Project portfolio and ideas"
+    "title": "Projekty",
+    "description": "Portfolio projektów i pomysłów"
   },
-  "aiDocumentation": {
-    "title": "AI Documentation",
-    "description": "Detailed description of AI usage in creating this website"
+  "documentation": {
+    "title": "Dokumentacja AI",
+    "description": "Szczegółowy opis wykorzystania AI w tworzeniu tej strony"
   },
   "qa": {
-    "title": "Questions & Answers",
-    "description": "Answers to technical questions"
+    "title": "Pytania i Odpowiedzi",
+    "description": "Odpowiedzi na pytania techniczne"
   },
   "contact": {
-    "title": "Contact",
-    "description": "Contact information"
+    "title": "Kontakt",
+    "description": "Informacje kontaktowe"
   },
   "buttons": {
-    "learnMore": "Learn More",
-    "viewProject": "View Project",
-    "contact": "Get in Touch",
-    "backToTop": "Back to Top"
+    "learnMore": "Dowiedz się więcej",
+    "viewProject": "Zobacz projekt",
+    "contact": "Skontaktuj się",
+    "backToTop": "Powrót na górę"
   }
 }
