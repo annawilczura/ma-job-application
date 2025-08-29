@@ -1,9 +1,6 @@
-import { Button } from 'primereact/button';
+import { redirect } from 'next/navigation';
 
 export default function Home() {
-  return (
-    <div>
-      <Button label='Click' />
-    </div>
-  );
+  redirect('/auth');
+  return null;
 }
