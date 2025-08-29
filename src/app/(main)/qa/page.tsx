@@ -1,5 +1,6 @@
 'use client';
 
+import { Accordion, AccordionTab } from 'primereact/accordion';
 import texts from '@/constants/texts.json';
 
 export default function QAPage() {
@@ -12,28 +13,29 @@ export default function QAPage() {
         <p className='text-lg text-color-secondary text-center mb-12'>
           {texts.qa.description}
         </p>
-        {/* Q&A content */}
-        <div className='space-y-6'>
-          {[
-            'Category 1',
-            'Category 2',
-            'Category 3',
-            'Category 4',
-            'Category 5',
-            'Category 6',
-            'Category 7',
-          ].map((category, index) => (
-            <div key={index} className='surface-100 p-6 rounded-lg'>
-              <h3 className='text-xl font-semibold text-color mb-4'>
-                {category}
-              </h3>
-              <p className='text-color-secondary'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </div>
+        <Accordion className='w-full'>
+          {texts.qa.qaContent.map((category, categoryIndex) => (
+            <AccordionTab
+              key={categoryIndex}
+              header={category.category}
+              className='mb-4'
+            >
+              <Accordion className='w-full mt-4'>
+                {category.questions.map((qa, questionIndex) => (
+                  <AccordionTab
+                    key={questionIndex}
+                    header={qa.question}
+                    className='mb-2'
+                  >
+                    <div className='p-4 text-color-secondary leading-relaxed'>
+                      {qa.answer}
+                    </div>
+                  </AccordionTab>
+                ))}
+              </Accordion>
+            </AccordionTab>
           ))}
-        </div>
+        </Accordion>
       </div>
     </section>
   );

@@ -30,7 +30,48 @@
   },
   "qa": {
     "title": "Pytania i Odpowiedzi",
-    "description": "Odpowiedzi na pytania techniczne"
+    "description": "Odpowiedzi na pytania techniczne",
+    "qaContent": [
+      {
+        "category": "General",
+        "questions": [
+          {
+            "question": "What is your experience with React?",
+            "answer": "I have extensive experience with React, including hooks, context API, and performance optimization."
+          },
+          {
+            "question": "Have you worked with TypeScript?",
+            "answer": "Yes, I am proficient in TypeScript and have used it in several projects to improve code quality and maintainability."
+          }
+        ]
+      },
+      {
+        "category": "Frontend Technologies",
+        "questions": [
+          {
+            "question": "What CSS frameworks are you familiar with?",
+            "answer": "I am familiar with Tailwind CSS, Bootstrap, and Material-UI."
+          },
+          {
+            "question": "What about state management libraries?",
+            "answer": "I have experience with Redux and Zustand for state management in large-scale applications."
+          }
+        ]
+      },
+      {
+        "category": "Backend Technologies",
+        "questions": [
+          {
+            "question": "What is your experience with Node.js?",
+            "answer": "I have experience building RESTful APIs with Node.js and Express."
+          },
+          {
+            "question": "Have you worked with any databases?",
+            "answer": "Yes, I have experience with both SQL (PostgreSQL) and NoSQL (MongoDB) databases."
+          }
+        ]
+      }
+    ]
   },
   "contact": {
     "title": "Kontakt",
