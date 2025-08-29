@@ -2,5 +2,49 @@
   "auth": {
     "heading": "Witaj, aby zobaczyć zawartość wpisz hasło",
     "placeholder": "Hasło"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "aiDocumentation": "AI Documentation",
+    "qa": "Q&A",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Your Name",
+    "subtitle": "Job Application Title",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "about": {
+    "title": "About Section",
+    "description": "Description of experience and motivation"
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "description": "Overview of technical competencies"
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Project portfolio and ideas"
+  },
+  "aiDocumentation": {
+    "title": "AI Documentation",
+    "description": "Detailed description of AI usage in creating this website"
+  },
+  "qa": {
+    "title": "Questions & Answers",
+    "description": "Answers to technical questions"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Contact information"
+  },
+  "buttons": {
+    "learnMore": "Learn More",
+    "viewProject": "View Project",
+    "contact": "Get in Touch",
+    "backToTop": "Back to Top"
   }
 }

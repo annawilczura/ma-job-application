@@ -3,7 +3,105 @@
 @import 'primeicons/primeicons.css';
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
-@import 'tailwindcss/utilities.css' layer(utilities);
-
 @import 'primereact/resources/themes/lara-light-amber/theme.css'
   layer(primereact);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@layer utilities {
+  .bg-surface-0 {
+    background-color: var(--surface-0);
+  }
+  .bg-surface-50 {
+    background-color: var(--surface-50);
+  }
+  .bg-surface-100 {
+    background-color: var(--surface-100);
+  }
+  .bg-surface-200 {
+    background-color: var(--surface-200);
+  }
+  .bg-surface-300 {
+    background-color: var(--surface-300);
+  }
+  .bg-surface-400 {
+    background-color: var(--surface-400);
+  }
+  .bg-surface-500 {
+    background-color: var(--surface-500);
+  }
+  .bg-surface-600 {
+    background-color: var(--surface-600);
+  }
+  .bg-surface-700 {
+    background-color: var(--surface-700);
+  }
+  .bg-surface-800 {
+    background-color: var(--surface-800);
+  }
+  .bg-surface-900 {
+    background-color: var(--surface-900);
+  }
+  .bg-surface-ground {
+    background-color: var(--surface-ground);
+  }
+  .bg-surface-section {
+    background-color: var(--surface-section);
+  }
+  .bg-surface-card {
+    background-color: var(--surface-card);
+  }
+
+  .bg-primary {
+    background-color: var(--primary-color);
+  }
+  .bg-primary-50 {
+    background-color: var(--primary-50);
+  }
+  .bg-primary-100 {
+    background-color: var(--primary-100);
+  }
+  .bg-primary-200 {
+    background-color: var(--primary-200);
+  }
+  .bg-primary-300 {
+    background-color: var(--primary-300);
+  }
+  .bg-primary-400 {
+    background-color: var(--primary-400);
+  }
+  .bg-primary-500 {
+    background-color: var(--primary-500);
+  }
+  .bg-primary-600 {
+    background-color: var(--primary-600);
+  }
+  .bg-primary-700 {
+    background-color: var(--primary-700);
+  }
+  .bg-primary-800 {
+    background-color: var(--primary-800);
+  }
+  .bg-primary-900 {
+    background-color: var(--primary-900);
+  }
+
+  .text-text-color {
+    color: var(--text-color);
+  }
+  .text-text-color-secondary {
+    color: var(--text-color-secondary);
+  }
+  .text-primary-color-text {
+    color: var(--primary-color-text);
+  }
+  .text-primary {
+    color: var(--primary-color);
+  }
+
+  .border-surface-border {
+    border-color: var(--surface-border);
+  }
+  .border-primary-border {
+    border-color: var(--primary-border);
+  }
+}
