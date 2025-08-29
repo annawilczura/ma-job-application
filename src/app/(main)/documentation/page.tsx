@@ -1,8 +1,10 @@
-'use client';
-
+import { getDocsFromS3 } from '@/lib/aws';
 import texts from '@/constants/texts.json';
+import DocumentationClient from '@/components/DocumentationClient';
 
-export default function DokumentacjaPage() {
+export default async function DokumentationPage() {
+  const markdown = await getDocsFromS3();
+
   return (
     <section className='py-20 px-4 sm:px-6 lg:px-8 surface-0'>
       <div className='max-w-4xl mx-auto'>
@@ -12,28 +14,12 @@ export default function DokumentacjaPage() {
         <p className='text-lg text-color-secondary text-center mb-12'>
           {texts.documentation.description}
         </p>
-        {/* AI documentation content */}
-        <div className='space-y-8'>
-          <div className='surface-100 p-6 rounded-lg shadow-md'>
-            <h3 className='text-xl font-semibold text-color mb-4'>
-              AI Tools Used in Project
-            </h3>
-            <p className='text-color-secondary'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-            </p>
-          </div>
-          <div className='surface-100 p-6 rounded-lg shadow-md'>
-            <h3 className='text-xl font-semibold text-color mb-4'>
-              AI Workflow Process
-            </h3>
-            <p className='text-color-secondary'>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident.
-            </p>
-          </div>
+        <div className='surface-100 p-6 rounded-lg shadow-md'>
+          {markdown ? (
+            <DocumentationClient markdown={markdown} />
+          ) : (
+            <p>Failed to load documentation.</p>
+          )}
         </div>
       </div>
     </section>

@@ -15,7 +15,8 @@ if (
   !process.env.AWS_SECRET_ACCESS_KEY ||
   !process.env.AWS_REGION ||
   !process.env.S3_BUCKET_NAME ||
-  !process.env.S3_FILE_KEY
+  !process.env.S3_FILE_KEY ||
+  !process.env.S3_DOCS_FILE_KEY
 ) {
   throw new Error('Missing required AWS environment variables');
 }
@@ -48,5 +49,25 @@ export async function getQADataFromS3(): Promise<QACategory[]> {
     console.error('Failed to fetch or parse data from S3:', error);
 
     return [];
+  }
+}
+
+export async function getDocsFromS3(): Promise<string> {
+  const command = new GetObjectCommand({
+    Bucket: process.env.S3_BUCKET_NAME,
+    Key: process.env.S3_DOCS_FILE_KEY,
+  });
+
+  try {
+    const { Body } = await s3Client.send(command);
+    if (!Body) {
+      throw new Error('The S3 object has no body.');
+    }
+
+    const bodyString = await Body.transformToString('utf-8');
+    return bodyString;
+  } catch (error) {
+    console.error('Failed to fetch or parse data from S3:', error);
+    return '';
   }
 }
