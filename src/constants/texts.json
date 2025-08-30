@@ -13,7 +13,11 @@
   },
   "chat": {
     "title": "AW",
-    "heading": "Zapytaj o moje doświadczenie :)"
+    "heading": "Zapytaj o moje doświadczenie :)",
+    "inputPlaceholder": "Wpisz swoją wiadomość...",
+    "sendButton": "Wyślij",
+    "defaultError": "Przepraszam, nie udało mi się uzyskać odpowiedzi. Spróbuj ponownie.",
+    "connectionError": "Przepraszam, mam problem z połączeniem. Spróbuj ponownie później."
   },
   "skills": {
     "title": "Umiejętności Techniczne",

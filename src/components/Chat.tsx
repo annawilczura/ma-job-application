@@ -5,6 +5,7 @@ import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Card } from 'primereact/card';
 import { submitMessage } from '@/app/actions';
+import texts from '@/constants/texts.json';
 
 interface Message {
   sender: 'user' | 'bot';
@@ -44,15 +45,14 @@ export default function Chat() {
 
       const botMessage: Message = {
         sender: 'bot',
-        text:
-          result.text || "Sorry, I couldn't get a response. Please try again.",
+        text: result.text || texts.chat.defaultError,
       };
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
       console.error('Failed to get chat response:', error);
       const errorMessage: Message = {
         sender: 'bot',
-        text: "Sorry, I'm having trouble connecting. Please try again later.",
+        text: texts.chat.connectionError,
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
@@ -103,7 +103,7 @@ export default function Chat() {
           <InputText
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder='Type your message...'
+            placeholder={texts.chat.inputPlaceholder}
             className='flex-1'
             disabled={isLoading}
           />
