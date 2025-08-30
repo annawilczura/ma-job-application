@@ -1,5 +1,18 @@
 'use server';
 
+import { redirect } from 'next/navigation';
+import { createSession } from '@/lib/session';
+
+export async function login(_: unknown, formData: FormData) {
+  const password = formData.get('password');
+  if (password === process.env.SITE_PASSWORD) {
+    await createSession();
+    redirect('/chat');
+  } else {
+    return 'Błędne hasło. Spróbuj ponownie.';
+  }
+}
+
 export async function submitMessage(
   chatInput: string,
 ): Promise<{ text?: string; error?: string }> {
