@@ -1,6 +1,9 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
+import { Card } from 'primereact/card';
 import { submitMessage } from '@/app/actions';
 
 interface Message {
@@ -58,8 +61,14 @@ export default function Chat() {
   };
 
   return (
-    <div className='flex flex-col h-[calc(100vh-400px)] w-full max-w-4xl mx-auto bg-white/10 rounded-xl shadow-lg'>
-      <div className='flex-1 p-6 overflow-y-auto'>
+    <Card
+      className='flex flex-col grow md:h-[calc(100vh-400px)] w-full max-w-4xl mx-auto'
+      pt={{
+        body: { className: 'flex flex-col flex-1 p-0 h-full' },
+        content: { className: 'flex flex-col flex-1 p-0 max-h-full' },
+      }}
+    >
+      <div className='flex-1 p-6 min-h-0 overflow-y-auto'>
         <div className='flex flex-col gap-4'>
           {messages.map((msg, index) => (
             <div
@@ -71,8 +80,8 @@ export default function Chat() {
               <div
                 className={`max-w-xs md:max-w-md lg:max-w-lg px-4 py-2 rounded-lg ${
                   msg.sender === 'user'
-                    ? 'bg-blue-500 text-white'
-                    : 'bg-gray-700 text-gray-200'
+                    ? 'bg-primary text-primary-color-text'
+                    : 'bg-surface-200 text-text-color'
                 }`}
               >
                 <p className='whitespace-pre-wrap'>{msg.text}</p>
@@ -81,7 +90,7 @@ export default function Chat() {
           ))}
           {isLoading && (
             <div className='flex justify-start'>
-              <div className='bg-gray-700 text-gray-200 px-4 py-2 rounded-lg'>
+              <div className='bg-surface-200 text-text-color px-4 py-2 rounded-lg'>
                 <p>...</p>
               </div>
             </div>
@@ -89,25 +98,22 @@ export default function Chat() {
           <div ref={messagesEndRef} />
         </div>
       </div>
-      <div className='p-4 border-t border-white/20'>
+      <div className='p-4 border-t border-surface-border'>
         <form onSubmit={handleSubmit} className='flex gap-4'>
-          <input
-            type='text'
+          <InputText
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder='Type your message...'
-            className='flex-1 px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
+            className='flex-1'
             disabled={isLoading}
           />
-          <button
+          <Button
             type='submit'
-            className='px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-blue-400 disabled:cursor-not-allowed'
+            icon='pi pi-send'
             disabled={isLoading || !input.trim()}
-          >
-            Send
-          </button>
+          />
         </form>
       </div>
-    </div>
+    </Card>
   );
 }

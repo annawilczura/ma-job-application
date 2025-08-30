@@ -12,9 +12,8 @@
     "contact": "Kontakt"
   },
   "chat": {
-    "title": "Your Name",
-    "subtitle": "Job Application Title",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "title": "AW",
+    "heading": "Zapytaj o moje doświadczenie :)"
   },
   "skills": {
     "title": "Umiejętności Techniczne",
