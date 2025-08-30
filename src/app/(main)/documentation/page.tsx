@@ -1,9 +1,22 @@
-import { getDocsFromS3 } from '@/lib/aws';
+import { getDocsFromS3, getPresignedUrl } from '@/lib/aws';
 import texts from '@/constants/texts.json';
 import DocumentationClient from '@/components/DocumentationClient';
 
-export default async function DokumentationPage() {
-  const markdown = await getDocsFromS3();
+export default async function DocumentationPage() {
+  let markdown = await getDocsFromS3();
+
+  if (markdown) {
+    const imageRegex = /!\[(.*?)\]\((images\/.*?)\)/g;
+    const matches = [...markdown.matchAll(imageRegex)];
+
+    for (const match of matches) {
+      const originalPath = match[2];
+      const presignedUrl = await getPresignedUrl(originalPath);
+      if (presignedUrl) {
+        markdown = markdown.replace(originalPath, presignedUrl);
+      }
+    }
+  }
 
   return (
     <section className='py-20 px-4 sm:px-6 lg:px-8 surface-0'>

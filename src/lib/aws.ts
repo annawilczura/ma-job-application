@@ -1,4 +1,5 @@
 import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3';
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
 export interface QAItem {
   question: string;
@@ -68,6 +69,21 @@ export async function getDocsFromS3(): Promise<string> {
     return bodyString;
   } catch (error) {
     console.error('Failed to fetch or parse data from S3:', error);
+    return '';
+  }
+}
+
+export async function getPresignedUrl(key: string): Promise<string> {
+  const command = new GetObjectCommand({
+    Bucket: process.env.S3_BUCKET_NAME,
+    Key: key,
+  });
+
+  try {
+    const url = await getSignedUrl(s3Client, command, { expiresIn: 3600 }); // URL expires in 1 hour
+    return url;
+  } catch (error) {
+    console.error(`Failed to get presigned URL for key ${key}:`, error);
     return '';
   }
 }
