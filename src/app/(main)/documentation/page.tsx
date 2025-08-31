@@ -25,7 +25,7 @@ export default async function DocumentationPage() {
           {markdown ? (
             <DocumentationClient markdown={markdown} />
           ) : (
-            <p>Failed to load documentation.</p>
+            <p>{texts.documentation.loadError}</p>
           )}
         </div>
       </div>
