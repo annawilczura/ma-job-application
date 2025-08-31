@@ -35,7 +35,8 @@
   },
   "qa": {
     "title": "Pytania i Odpowiedzi",
-    "description": "Odpowiedzi na pytania techniczne"
+    "description": "Odpowiedzi na pytania techniczne",
+    "loadError": "Brak pytań i odpowiedzi w tym momencie."
   },
   "contact": {
     "title": "Kontakt",
