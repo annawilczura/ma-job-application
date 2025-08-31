@@ -35,18 +35,30 @@ export default function DocumentationClient({
             {...props}
           />
         ),
+        h4: ({ node, ...props }) => (
+          <h4
+            className='text-lg sm:text-xl font-semibold text-color mt-4 mb-3 scroll-mt-20'
+            {...props}
+          />
+        ),
+        blockquote: ({ node, ...props }) => (
+          <blockquote
+            className='border-l-4 border-gray-400 text-gray-500 p-4 my-4 rounded-r-lg'
+            {...props}
+          />
+        ),
         p: ({ node, ...props }) => (
-          <p className='text-color-secondary mb-4' {...props} />
+          <p className='text-color-secondary mb-4 pl-4' {...props} />
         ),
         ul: ({ node, ...props }) => (
           <ul
-            className='list-disc list-inside text-color-secondary mb-4'
+            className='list-disc list-inside text-color-secondary mb-4 [&_ul]:list-[circle] [&_ul]:my-2 [&_ul]:ml-4 pl-4'
             {...props}
           />
         ),
         ol: ({ node, ...props }) => (
           <ol
-            className='list-decimal list-inside text-color-secondary mb-4'
+            className='list-decimal list-inside text-color-secondary mb-4 pl-4'
             {...props}
           />
         ),
