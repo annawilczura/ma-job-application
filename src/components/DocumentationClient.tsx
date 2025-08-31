@@ -1,8 +1,10 @@
 'use client';
 
+import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import rehypeSlug from 'rehype-slug';
 
 interface DocumentationClientProps {
   markdown: string;
@@ -13,22 +15,23 @@ export default function DocumentationClient({
 }: DocumentationClientProps) {
   return (
     <ReactMarkdown
+      rehypePlugins={[rehypeSlug]}
       components={{
         h1: ({ node, ...props }) => (
           <h1
-            className='text-3xl sm:text-4xl font-bold text-color mt-8 mb-4'
+            className='text-3xl sm:text-4xl font-bold text-color mt-8 mb-4 scroll-mt-20'
             {...props}
           />
         ),
         h2: ({ node, ...props }) => (
           <h2
-            className='text-2xl sm:text-3xl font-bold text-color mt-6 mb-4'
+            className='text-2xl sm:text-3xl font-bold text-color mt-6 mb-4 scroll-mt-20'
             {...props}
           />
         ),
         h3: ({ node, ...props }) => (
           <h3
-            className='text-xl sm:text-2xl font-semibold text-color mt-4 mb-4'
+            className='text-xl sm:text-2xl font-semibold text-color mt-4 mb-4 scroll-mt-20'
             {...props}
           />
         ),
@@ -48,14 +51,33 @@ export default function DocumentationClient({
           />
         ),
         li: ({ node, ...props }) => <li className='mb-2' {...props} />,
-        a: ({ node, ...props }) => (
-          <a
-            className='text-primary-500 hover:underline'
-            target='_blank'
-            rel='noopener noreferrer'
-            {...props}
-          />
-        ),
+        a: ({ node, ...props }) => {
+          if (
+            props.href &&
+            (props.href.startsWith('http') || props.href.startsWith('//'))
+          ) {
+            return (
+              <a
+                className='text-primary-500 hover:underline'
+                target='_blank'
+                rel='noopener noreferrer'
+                {...props}
+              />
+            );
+          }
+
+          if (!props.href) {
+            return <a {...props} />;
+          }
+
+          return (
+            <Link
+              className='text-primary-500 hover:underline'
+              {...props}
+              href={props.href}
+            />
+          );
+        },
         img: ({ node, ...props }) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img
