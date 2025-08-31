@@ -30,7 +30,8 @@
   },
   "documentation": {
     "title": "Dokumentacja AI",
-    "description": "Szczegółowy opis wykorzystania AI w tworzeniu tej strony"
+    "description": "Szczegółowy opis wykorzystania AI w tworzeniu tej strony",
+    "loadError": "Nie udało się załadować dokumentacji. Spróbuj ponownie później."
   },
   "qa": {
     "title": "Pytania i Odpowiedzi",
@@ -39,6 +40,11 @@
   "contact": {
     "title": "Kontakt",
     "description": "Informacje kontaktowe"
+  },
+  "notFound": {
+    "title": "Nie znaleziono",
+    "description": "Nie można znaleźć żądanego zasobu",
+    "homeLink": "Powrót na stronę główną"
   },
   "buttons": {
     "learnMore": "Dowiedz się więcej",
