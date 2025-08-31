@@ -46,7 +46,7 @@ export default function Navbar() {
       <nav
         className='fixed top-0 left-0 right-0 z-50 bg-surface-0 shadow-lg border-b border-surface-border'
         role='navigation'
-        aria-label='Main navigation'
+        aria-label={texts.navigation.mainLabel}
       >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='flex justify-between items-center h-16'>
@@ -57,7 +57,7 @@ export default function Navbar() {
                 label={texts.navigation.title}
                 className='text-xl sm:text-2xl font-bold p-0'
                 onClick={navigateToHome}
-                aria-label='Go to chat page'
+                aria-label={texts.navigation.goToChatLabel}
               />
             </div>
 
@@ -76,7 +76,7 @@ export default function Navbar() {
             <div className='lg:hidden'>
               <Button
                 icon='pi pi-bars'
-                aria-label='Open navigation menu'
+                aria-label={texts.navigation.openMenuLabel}
                 onClick={() => setSidebarVisible(true)}
               />
             </div>
