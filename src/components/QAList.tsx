@@ -2,6 +2,7 @@
 
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import type { QACategory } from '@/lib/aws';
+import texts from '@/constants/texts.json';
 
 interface QAListProps {
   data: QACategory[];
@@ -9,7 +10,7 @@ interface QAListProps {
 
 export default function QAList({ data }: QAListProps) {
   if (!data || data.length === 0) {
-    return <p>No Q&A data available at the moment.</p>;
+    return <p>{texts.qa.loadError}</p>;
   }
 
   return (
