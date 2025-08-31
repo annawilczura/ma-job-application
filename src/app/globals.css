@@ -3,7 +3,7 @@
 @import 'primeicons/primeicons.css';
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
-@import 'primereact/resources/themes/lara-light-amber/theme.css'
+@import 'primereact/resources/themes/lara-light-indigo/theme.css'
   layer(primereact);
 @import 'tailwindcss/utilities.css' layer(utilities);
 
