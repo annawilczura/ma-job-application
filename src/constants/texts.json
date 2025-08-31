@@ -51,5 +51,8 @@
     "viewProject": "Zobacz projekt",
     "contact": "Skontaktuj się",
     "backToTop": "Powrót na górę"
+  },
+  "footer": {
+    "subtitle": "Job Application Website."
   }
 }
