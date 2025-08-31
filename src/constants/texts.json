@@ -5,15 +5,15 @@
     "submitButton": "Zatwierdź"
   },
   "navigation": {
+    "title": "AW",
     "chat": "Chat",
-    "skills": "Umiejętności",
-    "projects": "Projekty",
     "documentation": "Dokumentacja",
     "qa": "Pytania i Odpowiedzi",
-    "contact": "Kontakt"
+    "mainLabel": "Panel nawigacji",
+    "goToChatLabel": "Przejdź do strony czatu",
+    "openMenuLabel": "Otwórz menu nawigacji"
   },
   "chat": {
-    "title": "AW",
     "heading": "Zapytaj o moje doświadczenie :)",
     "inputPlaceholder": "Wpisz swoją wiadomość...",
     "sendButton": "Wyślij",
@@ -51,5 +51,8 @@
     "viewProject": "Zobacz projekt",
     "contact": "Skontaktuj się",
     "backToTop": "Powrót na górę"
+  },
+  "footer": {
+    "subtitle": "Job Application Website."
   }
 }

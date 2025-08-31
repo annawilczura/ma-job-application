@@ -16,11 +16,8 @@ export default function Navbar() {
 
   const routes = [
     { path: '/chat', label: texts.navigation.chat },
-    { path: '/skills', label: texts.navigation.skills },
-    { path: '/projects', label: texts.navigation.projects },
     { path: '/documentation', label: texts.navigation.documentation },
     { path: '/qa', label: texts.navigation.qa },
-    { path: '/contact', label: texts.navigation.contact },
   ];
 
   const getActiveIndex = () => {
@@ -40,7 +37,7 @@ export default function Navbar() {
     setSidebarVisible(false);
   };
 
-  const scrollToHome = () => {
+  const navigateToHome = () => {
     router.push('/chat');
   };
 
@@ -49,18 +46,18 @@ export default function Navbar() {
       <nav
         className='fixed top-0 left-0 right-0 z-50 bg-surface-0 shadow-lg border-b border-surface-border'
         role='navigation'
-        aria-label='Main navigation'
+        aria-label={texts.navigation.mainLabel}
       >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='flex justify-between items-center h-16'>
             {/* Logo/Brand */}
             <div className='flex-shrink-0'>
               <Button
-                link
-                label={texts.chat.title}
+                text
+                label={texts.navigation.title}
                 className='text-xl sm:text-2xl font-bold p-0'
-                onClick={scrollToHome}
-                aria-label='Go to chat page'
+                onClick={navigateToHome}
+                aria-label={texts.navigation.goToChatLabel}
               />
             </div>
 
@@ -79,7 +76,7 @@ export default function Navbar() {
             <div className='lg:hidden'>
               <Button
                 icon='pi pi-bars'
-                aria-label='Open navigation menu'
+                aria-label={texts.navigation.openMenuLabel}
                 onClick={() => setSidebarVisible(true)}
               />
             </div>
@@ -99,7 +96,7 @@ export default function Navbar() {
           </div>
         }
       >
-        <div className='flex flex-column gap-2'>
+        <div className='flex flex-col gap-2'>
           {routes.map((route, index) => (
             <Button
               key={index}
