@@ -19,7 +19,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       {/* Footer */}
       <footer className='surface-900 text-surface-0 py-8 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-4xl mx-auto text-center'>
-          <p>&copy; 2024 {texts.chat.title}. Job Application Website.</p>
+          <p>&copy; 2024 {texts.navigation.title}. Job Application Website.</p>
         </div>
       </footer>
     </div>

@@ -5,6 +5,7 @@
     "submitButton": "Zatwierdź"
   },
   "navigation": {
+    "title": "AW",
     "chat": "Chat",
     "skills": "Umiejętności",
     "projects": "Projekty",
@@ -13,7 +14,6 @@
     "contact": "Kontakt"
   },
   "chat": {
-    "title": "AW",
     "heading": "Zapytaj o moje doświadczenie :)",
     "inputPlaceholder": "Wpisz swoją wiadomość...",
     "sendButton": "Wyślij",

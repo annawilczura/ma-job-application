@@ -16,11 +16,8 @@ export default function Navbar() {
 
   const routes = [
     { path: '/chat', label: texts.navigation.chat },
-    { path: '/skills', label: texts.navigation.skills },
-    { path: '/projects', label: texts.navigation.projects },
     { path: '/documentation', label: texts.navigation.documentation },
     { path: '/qa', label: texts.navigation.qa },
-    { path: '/contact', label: texts.navigation.contact },
   ];
 
   const getActiveIndex = () => {
@@ -57,7 +54,7 @@ export default function Navbar() {
             <div className='flex-shrink-0'>
               <Button
                 link
-                label={texts.chat.title}
+                label={texts.navigation.title}
                 className='text-xl sm:text-2xl font-bold p-0'
                 onClick={scrollToHome}
                 aria-label='Go to chat page'
