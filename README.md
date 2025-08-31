@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MA Job Application
 
-## Getting Started
+The deployed website is available at [ma-job-application.vercel.app](https://ma-job-application.vercel.app).
 
-First, run the development server:
+## How to run locally
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+To run the project on your local machine, follow these steps:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1.  Clone the repository to your local machine.
+2.  Install the necessary dependencies using pnpm:
+    ```bash
+    pnpm install
+    ```
+3.  Start the development server:
+    ```bash
+    pnpm dev
+    ```
+4.  Open your browser and navigate to `http://localhost:3000` to see the application running.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Before running the project, create a file named `.env.local` in the root directory and add the variables described below.
 
-## Learn More
+### AWS S3 for Q&A and Documentation
 
-To learn more about Next.js, take a look at the following resources:
+The application fetches Q&A data and documentation files from an AWS S3 bucket. To set this up:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  Create an AWS S3 bucket.
+2.  Upload a JSON file for the Q&A data and a Markdown file for the documentation.
+3.  Ensure your AWS IAM user has programmatic access with permissions to read from the bucket.
+4.  Add the following variables to your `.env.local` file:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```bash
+    # AWS Credentials
+    AWS_ACCESS_KEY_ID="YOUR_ACCESS_KEY_ID_HERE"
+    AWS_SECRET_ACCESS_KEY="YOUR_SECRET_ACCESS_KEY_HERE"
+    AWS_REGION="YOUR_S3_BUCKET_REGION_HERE"
 
-## Deploy on Vercel
+    # S3 Bucket Information
+    S3_BUCKET_NAME="your-s3-bucket-name-here"
+    S3_FILE_KEY="your-qa-file.json"
+    S3_DOCS_FILE_KEY="your-docs-file.md"
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### n8n for Chat
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The chat feature is powered by an n8n workflow. To make it work:
+
+1.  Set up an n8n instance and create a webhook workflow to process chat messages.
+2.  Add your n8n credentials to the `.env.local` file:
+
+    ```bash
+    # N8N Credentials
+    N8N_WEBHOOK_URL="webhook-url"
+    N8N_USERNAME="webhook-basic-auth-username"
+    N8N_PASSWORD="webhook-basic-auth-password"
+    ```
+
+### Application Security
+
+These variables are used for password-protecting the site and securing user sessions.
+
+1.  Add the following to your `.env.local` file:
+
+    ```bash
+    # Page content password protection
+    SITE_PASSWORD=your_super_secret_password
+    SESSION_SECRET=your_generated_secret_key
+    ```
+
+    **Note:** The `SESSION_SECRET` can be any randomly generated string.
