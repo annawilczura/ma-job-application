@@ -99,7 +99,7 @@ export default function Navbar() {
           </div>
         }
       >
-        <div className='flex flex-column gap-2'>
+        <div className='flex flex-col gap-2'>
           {routes.map((route, index) => (
             <Button
               key={index}
