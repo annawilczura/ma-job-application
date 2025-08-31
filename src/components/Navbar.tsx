@@ -37,7 +37,7 @@ export default function Navbar() {
     setSidebarVisible(false);
   };
 
-  const scrollToHome = () => {
+  const navigateToHome = () => {
     router.push('/chat');
   };
 
@@ -53,10 +53,10 @@ export default function Navbar() {
             {/* Logo/Brand */}
             <div className='flex-shrink-0'>
               <Button
-                link
+                text
                 label={texts.navigation.title}
                 className='text-xl sm:text-2xl font-bold p-0'
-                onClick={scrollToHome}
+                onClick={navigateToHome}
                 aria-label='Go to chat page'
               />
             </div>
