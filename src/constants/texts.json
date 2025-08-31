@@ -1,7 +1,8 @@
 {
   "auth": {
     "heading": "Witaj, aby zobaczyć zawartość wpisz hasło",
-    "placeholder": "Hasło"
+    "placeholder": "Hasło",
+    "submitButton": "Zatwierdź"
   },
   "navigation": {
     "chat": "Chat",
